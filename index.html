@@ -8,12 +8,23 @@
     <!-- Daisy ui CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- G Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <style>
+        .poppins-thin {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="">
+<body class="poppins-thin">
     <!-- nav section -->
     <section class="bg-[#F1F1F1] p-3 border-b border-[#C6BDBD]">
         <nav class=" mx-auto w-11/12 flex justify-between items-center ">
@@ -27,20 +38,49 @@
             <div class="flex justify-center items-center gap-3">
                 <!-- btn-1 -->
                 <button
-                    class="flex justify-center items-center gap-2 text-xs border-blue-700 border-1 px-2 py-1 rounded-sm text-blue-700 font-semibold hover:text-white hover:bg-blue-700">
+                    class="flex justify-center items-center gap-2 text-xs border-blue-700 border-1 px-2 py-1 rounded-sm text-blue-700 font-semibold hover:text-white hover:bg-blue-700 hover:cursor-pointer">
                     <i class="fa-solid fa-circle-question"></i>FAQ</button>
                 <!-- btn-2 -->
                 <button
-                    class="flex justify-center items-center gap-2 text-xs border-blue-700 border-1 px-2 py-1 rounded-sm text-blue-700 font-semibold hover:text-white hover:bg-blue-700">
+                    class="flex justify-center items-center gap-2 text-xs border-blue-700 border-1 px-2 py-1 rounded-sm text-blue-700 font-semibold hover:text-white hover:bg-blue-700 hover:cursor-pointer ">
                     <i class="fa-solid fa-book-open"></i>Learn</button>
                 <!-- btn-3 -->
                 <button
-                    class="flex justify-center items-center gap-2 text-xs border-blue-700 border-1 px-2 py-1 rounded-sm text-blue-700 font-semibold hover:text-white hover:bg-blue-700">
+                    class="flex justify-center items-center gap-2 text-xs border-blue-700 border-1 px-2 py-1 rounded-sm text-blue-700 font-semibold hover:text-white hover:bg-blue-700 hover:cursor-pointer">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i></i>Logout</button>
 
 
             </div>
         </nav>
+    </section>
+
+
+    <!-- Hero section -->
+    <section class="mx-auto w-11/12 flex justify-between items-center">
+        <!-- hero left -->
+        <div class="w-5/12">
+            <!-- left text -->
+            <div>
+                <h1 class="font-bold text-5xl mb-4"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
+                <p class="mb-4 text-[#464649]">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের
+                    Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+            </div>
+            <!-- left input -->
+            <div class="flex flex-col gap-5">
+                <input type="text" placeholder="Type here" class="input" />
+                <input type="password" placeholder="Type here" class="input" />
+            </div>
+            <!-- left-btn -->
+            <div class="mt-5">
+                <button
+                    class="text-sm border-blue-700 border-1 px-4 py-2 rounded-sm text-white bg-blue-700 font-semibold hover:text-blue-700 hover:bg-white hover:cursor-pointer">Get
+                    Started</button>
+            </div>
+        </div>
+        <!-- hero right -->
+        <div class="w-4/12">
+            <img class="w-auto" src="assets/hero-student.png" alt="">
+        </div>
     </section>
 
 </body>
