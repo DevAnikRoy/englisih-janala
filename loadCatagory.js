@@ -12,13 +12,24 @@ async function displayCategories(category) {
         for (let cate of category) {
             const categoryDiv = document.createElement('div');
             categoryDiv.innerHTML = `
-     <button onclick="loadLessons(${cate.level_no})" class="btn bg-white text-[#422AD5] border-[#422AD5] border-solid border-1 font-semibold text-sm py-1 px-4 rounded-sm hover:cursor-pointer hover:bg-[#422AD5] hover:text-white"><i class="fa-solid fa-book-open"></i> Lesson-${cate.level_no}</button>
+     <button id = "btn" onclick="loadLessons(${cate.level_no})" class="btn bg-white text-[#422AD5] border-[#422AD5] border-solid border-1 font-semibold text-sm py-1 px-4 rounded-sm hover:cursor-pointer hover:bg-[#422AD5] hover:text-white"><i class="fa-solid fa-book-open"></i> Lesson-${cate.level_no}</button>
 `;
             categoryContainer.append(categoryDiv);
         }
-        categoryContainer.addEventListener('click', function () {
-            console.log('hoooooo hee haaa hooo')
-            document.getElementById('select-lesson-aleart').classList.add('hidden');
+        categoryContainer.addEventListener('click', function (event) {
+            if (event.target.tagName === 'BUTTON') {
+                // Hide the alert section
+                document.getElementById('select-lesson-aleart').classList.add('hidden');
+                 // Remove the 'selected' class from all buttons
+                 const buttons = categoryContainer.querySelectorAll('button');
+                 buttons.forEach(button => {
+                     button.classList.remove('selected');
+                 });
+ 
+                 // Add the 'selected' class to the clicked button
+                 event.target.classList.add('selected');
+             }
+            
         });
     }
     catch (error) {

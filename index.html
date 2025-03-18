@@ -46,8 +46,14 @@
             background-color: rgba(241, 241, 241, 0.4);
             backdrop-filter: blur(9px);
         }
-        .hidden{
+
+        .hidden {
             display: none;
+        }
+
+        .selected {
+            background-color: #422AD5;
+            color: white;
         }
     </style>
 </head>
@@ -96,8 +102,8 @@
             </div>
             <!-- left input -->
             <div class="flex flex-col gap-5">
-                <input type="text" placeholder="Type here" class="input" />
-                <input type="password" placeholder="Type here" class="input" />
+                <input type="text" placeholder="Enter Your Name" class="input" />
+                <input type="password" placeholder="Enter Your Password" class="input" />
             </div>
             <!-- left-btn -->
             <div class="mt-5">
@@ -127,7 +133,7 @@
             <h1 class="mt-4 text-2xl font-semibold">একটি Lesson Select করুন।</h1>
         </div>
 
-        <div id="word-card" class="grid grid-cols-3 bg-[#F8F8F8] rounded-lg mx-auto w-11/12 mt-8">  
+        <div id="word-card" class="grid grid-cols-3 bg-[#F8F8F8] rounded-lg mx-auto w-11/12 mt-8">
         </div>
         <div id="lesson-warning"></div>
     </section>
@@ -231,6 +237,7 @@
 
     <script src="loadCatagory.js"></script>
     <script src="hideSection.js"></script>
+    <!-- <script src="toggle.js"></script> -->
 </body>
 
 </html>
