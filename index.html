@@ -36,6 +36,9 @@
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Include SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Sticky Nav Bar -->
     <style>
         .navbar-sticky {
@@ -60,7 +63,7 @@
 
 <body class="poppins-thin">
     <!-- nav section -->
-    <section class="navbar-sticky bg-[#F1F1F1] p-3 border-b border-[#C6BDBD]">
+    <section class="navbar-sticky bg-[#F1F1F1] p-3 border-b border-[#C6BDBD] hidden">
         <nav class=" mx-auto w-11/12 flex justify-between items-center ">
             <!-- nav left -->
             <div class="flex justify-center items-center">
@@ -71,15 +74,15 @@
             <!-- nav right -->
             <div class="flex justify-center items-center gap-3">
                 <!-- btn-1 -->
-                <button
+                <button id="faq-btn"
                     class="flex justify-center items-center gap-2 text-xs border-[#422AD5] border-1 px-2 py-1 rounded-sm text-[#422AD5] font-semibold hover:text-white hover:bg-[#422AD5] hover:cursor-pointer">
                     <i class="fa-solid fa-circle-question"></i>FAQ</button>
                 <!-- btn-2 -->
-                <button
+                <button id="learn-btn"
                     class="flex justify-center items-center gap-2 text-xs border-[#422AD5] border-1 px-2 py-1 rounded-sm text-[#422AD5] font-semibold hover:text-white hover:bg-[#422AD5] hover:cursor-pointer ">
                     <i class="fa-solid fa-book-open"></i>Learn</button>
                 <!-- btn-3 -->
-                <button
+                <button id="logout-btn"
                     class="flex justify-center items-center gap-2 text-xs border-[#422AD5] border-1 px-2 py-1 rounded-sm text-[#422AD5] font-semibold hover:text-white hover:bg-[#422AD5] hover:cursor-pointer">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i></i>Logout</button>
 
@@ -90,7 +93,7 @@
 
 
     <!-- Hero section -->
-    <section class="mx-auto w-11/12 flex justify-between items-center mt-16">
+    <section id="hero-section" class="mx-auto w-11/12 flex justify-between items-center mt-16">
         <!-- hero left -->
         <div class="w-5/12">
             <!-- left text -->
@@ -102,12 +105,12 @@
             </div>
             <!-- left input -->
             <div class="flex flex-col gap-5">
-                <input type="text" placeholder="Enter Your Name" class="input" />
-                <input type="password" placeholder="Enter Your Password" class="input" />
+                <input id="name-input" type="text" placeholder="Enter Your Name" class="input" />
+                <input id="password-input" type="password" placeholder="Enter Your Password" class="input" />
             </div>
             <!-- left-btn -->
             <div class="mt-5">
-                <button
+                <button id="get-start-btn"
                     class="text-sm border-1 px-4 py-2 rounded-sm text-white bg-[#422AD5] font-semibold hover:bg-white hover:border-[#422AD5] hover:text-[#422AD5] hover:cursor-pointer">Get
                     Started</button>
             </div>
@@ -119,7 +122,7 @@
     </section>
 
     <!-- Learn Vocabulary -->
-    <section class="mt-32">
+    <section id="learn-section" class="mt-28 mx-auto w-11/12 hidden">
         <div class="text-center">
             <h1 class="font-bold text-3xl mb-10"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h1>
         </div>
@@ -128,19 +131,26 @@
 
         </div>
         <!-- lesson select -->
-        <div id="select-lesson-aleart" class="mx-auto w-11/12 mt-10 bg-[#F8F8F8] rounded-lg py-10 text-center">
+        <div id="select-lesson-aleart" class="mx-auto mt-10 bg-[#F8F8F8] rounded-lg py-10 text-center">
             <p class="text-sm text-[#79716B]">আপনি এখনো কোন Lesson Select করেন নি</p>
             <h1 class="mt-4 text-2xl font-semibold">একটি Lesson Select করুন।</h1>
         </div>
 
         <div id="word-card" class="grid grid-cols-3 bg-[#F8F8F8] rounded-lg mx-auto w-11/12 mt-8">
         </div>
-        <div id="lesson-warning"></div>
+        <div id="lesson-warning">
+
+        </div>
+        <div id="lesson-info"></div>
+
+        <!-- loading spinner-->
+        <div id="loading-spinner" class="hidden loading loading-dots loading-xl"></div>
+
     </section>
 
 
     <!-- Frequent Ask Question -->
-    <section class="mx-auto w-11/12 mt-50 mb-20">
+    <section id="faq-section" class="mx-auto w-11/12 mt-32 mb-20 hidden">
         <div class="text-center">
             <h1 class="font-bold text-3xl mb-10"><span class="text-[#00BCFF]">Frequently</span> Asked Questions</h1>
         </div>
@@ -226,9 +236,15 @@
         <div>
             <p class="text-slate-600">Follow us</p>
             <div class="flex justify-between items-center mt-2">
-                <i class="fa-brands fa-facebook hover:cursor-pointer"></i>
-                <i class="fa-brands fa-youtube hover:cursor-pointer"></i>
-                <i class="fa-brands fa-instagram hover:cursor-pointer"></i>
+                <a href="https://www.facebook.com/programmingHero/" target="_blank">
+                    <i class="fa-brands fa-facebook hover:cursor-pointer"></i>
+                </a>
+                <a href="https://www.youtube.com/c/ProgrammingHero" target="_blank">
+                    <i class="fa-brands fa-youtube hover:cursor-pointer"></i>
+                </a>
+                <a href="https://www.instagram.com/programminghero/?hl=en" target="_blank">
+                    <i class="fa-brands fa-instagram hover:cursor-pointer"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -237,6 +253,9 @@
 
     <script src="loadCatagory.js"></script>
     <script src="hideSection.js"></script>
+    <script src="smoothScrolling.js"></script>
+    <script src="logIn.js"></script>
+    <script src="logout.js"></script>
     <!-- <script src="toggle.js"></script> -->
 </body>
 
