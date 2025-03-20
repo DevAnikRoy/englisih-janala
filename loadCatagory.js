@@ -117,6 +117,7 @@ async function displayLessons(lessons) {
 // load information
 
 async function loadInfo(id) {
+    console.log(id)
     try {
         const url = `https://openapi.programming-hero.com/api/word/${id}`
         const res = await fetch(url);
@@ -132,7 +133,7 @@ async function loadInfo(id) {
 
 async function displayInfo(informations) {
     try {
-        if (!informations || Object.keys(informations).length === 0) {
+        if (informations.synonyms.length === 0) {
             const lessonInfoDiv = document.getElementById('lesson-info');
             const existingPopup = document.getElementById('popup');
             if (existingPopup) {
@@ -141,9 +142,9 @@ async function displayInfo(informations) {
 
             const creatInfoDiv = document.createElement('div');
             creatInfoDiv.innerHTML = `
-                <div id="popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <div id="popup" class="fixed inset-0 flex items-center justify-center">
                     <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-md text-center">
-                        <p class="text-xl font-bold">No data available</p>
+                        <p class="text-xl font-bold">কোন অর্থ নেই</p>
                         <button id="closePopup" class="mt-5 bg-[#422AD5] text-white px-4 py-2 rounded hover:bg-white hover:text-[#422AD5] hover:border-1 border-[#422AD5] hover:font-bold">
                             Close
                         </button>
