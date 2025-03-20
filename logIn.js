@@ -14,6 +14,7 @@ document.getElementById('get-start-btn').addEventListener('click', () => {
             }).then(() => {
                 
                 const sections = document.querySelectorAll('.hidden');
+
                 document.getElementById('hero-section').style.display = 'none';
 
                 sections.forEach(section => {
